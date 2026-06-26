@@ -15,6 +15,7 @@ A C++ console application simulating a retail inventory management system.
 ```bash
 g++ main.cpp -o supermart
 ./supermart
+```
 
 ## Planned Features
 
