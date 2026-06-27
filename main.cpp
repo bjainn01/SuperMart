@@ -29,7 +29,6 @@ int main(){
     char playagain;
 
   do{
-    srand(time(NULL));
     cout << "Welcome to the Brilliant SuperMart.\n";
     cout << "Please select the operation you would like to do!\n";
     cout << "1. Enter Admin Mode.\n";
@@ -39,14 +38,15 @@ int main(){
     cin >> userinput;
 
     switch(userinput){
-        case 1: cout << "Entering Admin Mode, Please be patient..\n"; 
-                int randumcountdown = [ rand() % 6 ] + 1;
-                this_thread::sleep_for(chrono::seconds(randumcountdown));
+        case 1: 
+                srand(time(NULL));
+                cout << "Entering Admin Mode, Please be patient..\n"; 
+                this_thread::sleep_for(chrono::seconds(( rand() % 6 ) + 1));
                 cout << "Succesfully entered Admin Mode!\n";
-
-
-            break;
-        default: cout << "Please enter the serial number corresponding to the valid operation!\n";
+                break;
+        default:
+                cout << "Please enter the serial number corresponding to the valid operation!\n";
+                break;
     }; 
 
     cout << "Do you want to head back to the main interface? [ enter 'n' to exit]\n";
