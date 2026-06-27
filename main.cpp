@@ -1,5 +1,7 @@
+// heard that bits/stdc++.h contains 'everything'.
 #include <bits/stdc++.h>
 using namespace std;
+// Creating A Struct for Our Products, Having Various Attributes. 
 
 struct productdetails{
     string name;
@@ -10,6 +12,7 @@ struct productdetails{
     string flag;
     double price;
 };
+// creating functions for our various features and passing the Inventory array by refference.
 void viewinventory(productdetails inventory[]);
 void searchinventory(productdetails inventory[]);
 void sortinventory(productdetails inventory[]);
@@ -19,8 +22,9 @@ int main(){
     
     int menuinput;
     char playagain;
+    // Inventory size if very rigid
     productdetails inventory[4];
-    
+    // Filling up the inventory
     inventory[0].name = "Wireless Mouse";
     inventory[0].quantity = 25;
     inventory[0].model = "WM-2024";
@@ -49,11 +53,14 @@ int main(){
     inventory[3].description = "1TB high-speed external solid-state drive";
     inventory[3].rating = 4.8;
     
+// setting up LOW STOCK Label. 
+
     for(int i = 0; i < 4; i++){
         inventory[i].quantity < 10 ? inventory[i].flag = "LOW STOCK" : inventory[i].flag = "NONE";   
         
     }
     
+// main Interface setup
     
 do{ 
     cout << "Welcome to The Brilliant SuperMart!\n";
@@ -81,13 +88,13 @@ do{
     cin.ignore();
     
 }while(playagain != 'n');
-    
-    
-    
+
 
     cout << "Thank you for visitng our Brilliant SuperMart!!\n";
     return 0;
 }
+
+// defining viewinventory function
 
 void viewinventory(productdetails inventory[]){
     
@@ -100,10 +107,11 @@ void viewinventory(productdetails inventory[]){
         cout << "Rating: " << inventory[i].rating << endl;
         cout << "Flags: " << inventory[i].flag << endl;
         cout << "Price: " << inventory[i].price << endl;
-        cout << endl;
-        
+        cout << endl;       
     };
 }
+
+// defining searchinventory function
 
 void searchinventory(productdetails inventory[]){
     
@@ -135,12 +143,14 @@ void searchinventory(productdetails inventory[]){
     }
 }
 
+// defining sort inventory function
+
 void sortinventory(productdetails inventory[]){ 
-    int banana;
+    int userinput2;
     cout << "On what basis would you like to sort our inventory on? please enter 1 for QUANTITY, 2 for RATING, 3 for PRICE: \n";             
-    cin >> banana;
+    cin >> userinput2;
     
-    switch(banana){
+    switch(userinput2){
         case 1: 
                 for(int i = 0; i < 3; i++){
                     for(int j = 0; j < 3 - i; j++){
@@ -178,17 +188,15 @@ void sortinventory(productdetails inventory[]){
                             productdetails temp = inventory[j];
                             inventory[j] = inventory[j + 1];
                             inventory[j + 1] = temp;
-                
+
                     }
                 }
-    
+
                 } 
-            
+
                 viewinventory(inventory);
             break;
         default: cout << "Enter a Valid option please.";
-            break;
-        
-    
+            break;   
 };
 }
